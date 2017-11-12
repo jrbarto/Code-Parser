@@ -4,7 +4,7 @@
  * http://opensource.org/licenses/Apache-2.0
  */
 
-package codesmell;
+package com.codeparser;
 
 import java.util.Arrays;
 
