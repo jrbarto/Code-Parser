@@ -1,24 +1,37 @@
-package com.codeparser;
+package codesmell;
 
-public class Driver {
+import javax.swing.SwingUtilities;
+public class Driver{
+	
+	public Driver() {}
 
-	public Driver() {
-		// TODO Auto-generated constructor stub
-	}
-
-	public static void printGlobal(String fileArg) {
-		// TODO Auto-generated method stub
-		String file_data = bCodeParser.removeComments(bCodeParser.fileToString(fileArg));
-		Bracket rack = new Bracket(new String[]{"global scope", file_data});
-		rack.print();
-	}
-
-	public static void main(String[] args) {
-		if (args.length < 1) {
-			System.out.println("[Error] You must specify a file argument to parse.");
-			System.exit(1);
+	
+	public static void m2ManyArgs(Bracket rack, String lines[], int max){
+		String l[] = rack.listMethods();
+		for(int i = 0, totalArgs; i < l.length; i++){
+			totalArgs = bCodeParser.totalArgsInMethod(l[i]);
+			if (totalArgs > max){
+				System.out.print(l[i] + " totalargs = " + totalArgs);
+				System.out.println(" LineNumber = " + bCodeParser.methodLineNumber(l[i], lines));
+			}
 		}
-
-		printGlobal(args[0]);
 	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String file_data = bCodeParser.removeComments(bCodeParser.fileToString("/Users/brian/Desktop/bCodeParser.java"));
+		//The Bracket class handles zero length head/body without a problem, (but not nulls)
+		Bracket rack = new Bracket("Global Scope", file_data);
+		String lines[] = bCodeParser.fileToLines("/Users/brian/Desktop/bCodeParser.java");
+		//rack.print();
+		SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+        		new bCodeViewer(rack.getJTree(lines));
+            }
+        });
+		m2ManyArgs(rack, lines, 1);
+		
+	}
+
 }
