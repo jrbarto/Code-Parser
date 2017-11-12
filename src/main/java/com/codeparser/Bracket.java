@@ -4,7 +4,7 @@
  * http://opensource.org/licenses/Apache-2.0
  */
 
-package com.codeparser;
+package codesmell;
 
 import java.util.Arrays;
 
@@ -19,14 +19,16 @@ public class Bracket{
 	private String arguments[];
 
 	public Bracket(){}
-	public Bracket(String head, String body){
-		this.head = head;
-		this.body = body;
-		this.init();
-	}
+	
 	public Bracket(String bracket[]){
 		this.head = bracket[0];
 		this.body = bracket[1];
+		this.init();
+	}
+	public Bracket(String filename){
+		//The Bracket class handles zero length head/body without a problem, (but not nulls)
+		this.head = "Global Scope";
+		this.body = bCodeParser.removeComments(bCodeParser.fileToString("/Users/brian/Desktop/bCodeParser.java"));
 		this.init();
 	}
 	public String getHead(){

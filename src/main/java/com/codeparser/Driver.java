@@ -3,7 +3,7 @@
  * Licensed under Apache 2.0 license
  * http://opensource.org/licenses/Apache-2.0
  */
-package com.codeparser;
+package codesmell;
 
 import javax.swing.SwingUtilities;
 public class Driver{
@@ -24,10 +24,9 @@ public class Driver{
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		String file_data = bCodeParser.removeComments(bCodeParser.fileToString("/Users/brian/Desktop/bCodeParser.java"));
-		//The Bracket class handles zero length head/body without a problem, (but not nulls)
-		Bracket rack = new Bracket("Global Scope", file_data);
-		String lines[] = bCodeParser.fileToLines("/Users/brian/Desktop/bCodeParser.java");
+		String filename = "/Users/brian/Desktop/bCodeParser.java";
+		Bracket rack = new Bracket(filename);
+		String lines[] = bCodeParser.fileToLines(filename);
 		//rack.print();
 		SwingUtilities.invokeLater(new Runnable() {
             @Override

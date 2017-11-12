@@ -3,7 +3,7 @@
  * Licensed under Apache 2.0 license
  * http://opensource.org/licenses/Apache-2.0
  */
-package com.codeparser;
+package codesmell;
 
 import java.awt.Dimension;
 import java.awt.event.MouseAdapter;
