@@ -28,7 +28,7 @@ public class Bracket{
 	public Bracket(String filename){
 		//The Bracket class handles zero length head/body without a problem, (but not nulls)
 		this.head = "Global Scope";
-		this.body = bCodeParser.removeComments(bCodeParser.fileToString("/Users/brian/Desktop/bCodeParser.java"));
+		this.body = bCodeParser.removeComments(bCodeParser.fileToString(filename));
 		this.init();
 	}
 	public String getHead(){
