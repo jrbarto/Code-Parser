@@ -1,6 +1,7 @@
-/*
- * bCodeViewer.java created by Brian Green
- * 
+/**
+ * Copyright (c) 2017 Brian Green
+ * Licensed under Apache 2.0 license
+ * http://opensource.org/licenses/Apache-2.0
  */
 package codesmell;
 

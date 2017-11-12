@@ -1,3 +1,8 @@
+/**
+ * Copyright (c) 2017 Brian Green
+ * Licensed under Apache 2.0 license
+ * http://opensource.org/licenses/Apache-2.0
+ */
 package codesmell;
 
 import javax.swing.SwingUtilities;
