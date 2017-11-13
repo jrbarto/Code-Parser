@@ -22,9 +22,14 @@ public class Driver{
 		}
 	}
 	
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		String filename = "/Users/brian/Desktop/bCodeParser.java";
+	public static void printGlobal(String filename) {
+		//Filename should be checked for null before calling this method
+		Bracket rack = new Bracket(filename);
+		rack.print();
+	}
+	
+	public static void displayGlobal(String filename){
+		//Filename should be checked for null before calling this method
 		Bracket rack = new Bracket(filename);
 		String lines[] = bCodeParser.fileToLines(filename);
 		//rack.print();
@@ -34,8 +39,18 @@ public class Driver{
         		new bCodeViewer(rack.getJTree(lines));
             }
         });
-		m2ManyArgs(rack, lines, 1);
+		//m2ManyArgs(rack, lines, 1);
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
 		
+		//I'm using eclipse to debug. Therefore, there are no args supplied to main(String[])  
+		/*if (args.length < 1) {
+			System.out.println("[Error] You must specify a file argument to parse.");
+			System.exit(1);
+		}*/
+		displayGlobal("/Users/brian/Desktop/bCodeParser.java");
 	}
 
 }
