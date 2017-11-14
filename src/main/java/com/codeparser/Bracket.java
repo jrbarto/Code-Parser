@@ -123,7 +123,7 @@ public class Bracket{
 	
 	public DefaultMutableTreeNode getJTree(String lines[]){
 		int i;
-		DefaultMutableTreeNode this_tree = new DefaultMutableTreeNode("Bracket \""+head+"\""), bd = null, args = null, ch = null, med = null;
+		DefaultMutableTreeNode this_tree = new DefaultMutableTreeNode("Bracket \""+head+"\""), bd, args, ch, med;
 		if (body.length() > 0){
 			bd = new DefaultMutableTreeNode("Body["+body.length()+"]");
 			bd.add(new DefaultMutableTreeNode(body));
