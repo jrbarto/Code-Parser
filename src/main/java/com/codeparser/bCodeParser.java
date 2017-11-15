@@ -36,10 +36,9 @@ public class bCodeParser {
     
 	static public String[] fileToLines(String filename){
 		//returns empty array for errors. Therefore, it will be no need to check for null pointer
-		Path path = null;
 		Object[] tmp = null;
 		Stream<String> bytes = null;
-		path = Paths.get(filename);
+		Path path = Paths.get(filename);
 		try{
 			bytes = Files.lines(path, StandardCharsets.UTF_8);
 			tmp = bytes.toArray();
@@ -53,9 +52,8 @@ public class bCodeParser {
 	}
 	static public String fileToString(String filename){
 		//returns empty string for errors. Therefore, it will be no need to check for null pointer
-		Path path = null;
 		byte[] bytes = null;
-		path = Paths.get(filename);
+		Path path = Paths.get(filename);
 		try{
 			bytes = Files.readAllBytes(path);
 			}catch (IOException e) {

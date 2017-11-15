@@ -66,7 +66,7 @@ public class Bracket{
 			bCodeParser.setArgs(body, arguments);
 		}else arguments = null;
 		max_depth = bCodeParser.totalChildren(body); //returns two short values (maxdepth, total_children) represented as an int
-		if (max_depth > 0) {
+		if (max_depth != 0) {
 			children = new Bracket[max_depth & 0xFFFF];
 			for (int i = 0; i < children.length; i++){
 				children[i] = new Bracket(bCodeParser.getBracket(new String(body), i));
