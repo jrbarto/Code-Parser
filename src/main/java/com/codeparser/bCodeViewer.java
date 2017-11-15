@@ -48,13 +48,12 @@ public class bCodeViewer extends JFrame {
 	    TreePath tp = tree.getPathForLocation(event.getX(), event.getY());
 	    if (tp == null) return;
 	    Object tarray[] = tp.getPath();
-	    if (tarray.length < 2) return;
-	    if (tp != null && tarray[tarray.length - 2].toString().startsWith("Body[")){
+	    if (tarray.length > 1 && tarray[tarray.length - 2].toString().startsWith("Body[")){
 	    	ta.setText(tp.getLastPathComponent().toString());
 	    	switch (JOptionPane.showConfirmDialog(null, new JScrollPane(ta), "Bracket Viewer (Body)", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE)) {
-        case JOptionPane.OK_OPTION:
-            //System.out.println("Closing Confirm Dialog");
-            break;
+	    		case JOptionPane.OK_OPTION:
+	    			//System.out.println("Closing Confirm Dialog");
+	    			break;
 	    }
 	    }
 	  }
