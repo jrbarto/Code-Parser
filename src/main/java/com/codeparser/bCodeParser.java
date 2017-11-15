@@ -328,8 +328,10 @@ public class bCodeParser {
 	static public int methodLineNumber(String head, String[] lines){
 		String[] parts = head.split("\n");
 		for (int i = 0, ii, iii; i < lines.length; i++){
-			for (ii = 0, iii = 0; ii < parts.length; ii++)
+			for (ii = 0, iii = 0; ii < parts.length; ii++){
 				if (i+ii < lines.length && lines[i+ii].indexOf(parts[ii]) != -1) iii++;
+				else break;
+			}
 			if (iii == parts.length) return i + ii;
 		}
 		return 0;//returns 0 on error
