@@ -331,17 +331,16 @@ public class bCodeParser {
 		String[] parts = head.split("\n");
 		for (int i = 0, ii, iii; i < lines.length; i++){
 			for (ii = 0, iii = 0; ii < parts.length; ii++)
-				if (lines[i+ii].indexOf(parts[ii]) != -1) iii++;
+				if (i+ii < lines.length && lines[i+ii].indexOf(parts[ii]) != -1) iii++;
 			if (iii == parts.length) return i + ii;
 		}
 		return 0;//returns 0 on error
 	}
 	static public String argsInMethod(String head){
 		// boolean isMethod() makes sure this string will have at least a word and "(*)"
-		String args = "";
 		for (int i = 0; i < head.length(); i++)
-			if (head.charAt(i) == '(') {args = head.substring(i+1, head.length()-1);break;}
-		return args;
+			if (head.charAt(i) == '(') return head.substring(i+1, head.length()-1);
+		return "";
 	}
 	
 	static public int totalArgsInMethod(String head){
