@@ -166,6 +166,7 @@ public class bCodeParser {
 		switch(str.charAt(0)){
 			case ' ':					
 			case '\n':
+            case '\r':
 			case '\t':
 				return removeVoidForward(str.substring(1));	
 			}
@@ -176,6 +177,7 @@ public class bCodeParser {
 		switch(str.charAt(str.length() - 1)){
 			case ' ':					
 			case '\n':
+            case '\r':
 			case '\t':
 				return removeVoidReverse(str.substring(0, str.length() - 1));	
 			}
